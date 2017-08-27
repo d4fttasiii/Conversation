@@ -1,0 +1,19 @@
+{
+  "name": "conversation-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "elasticsearch": "^13.3.1",
+    "express": "^4.15.4",
+    "http": "^0.0.0",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "git.enabled": false,
+    "git.autofetch": false,
+
+    "editor.fontSize": 16,
+    "editor.tabSize": 3
+}
