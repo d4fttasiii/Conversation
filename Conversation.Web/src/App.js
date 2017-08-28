@@ -5,6 +5,7 @@ import io from 'socket.io-client';
 import { Conversation } from './components/Conversation';
 import { ENVIRONMENT } from './environments/environment';
 import { Navbar } from './components/Navbar';
+import { Login } from './components/Login';
 import { Participants } from './components/Participants';
 import { MessageService } from './services/message-service';
 
@@ -16,7 +17,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      messages: []
+      messages: [],
+      loggedInUser: {
+        username: '',
+        color: 'primary'
+      }
     };
     const socket = this._socket;
     socket.on('connect', function () {
@@ -35,6 +40,7 @@ class App extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-3">
+              <Login login={this._login.bind(this)}></Login>
               <Participants></Participants>
             </div>
             <div className="col-md-9">
@@ -49,7 +55,7 @@ class App extends Component {
 
   _sendMessage(newMessage) {
     this._messageService.sendMessage({
-      username: 'Tony Stark',
+      username: this.state.loggedInUser.username,
       text: newMessage
     }).then(
       success => {
@@ -65,6 +71,12 @@ class App extends Component {
       this.setState({
         messages: messages
       });
+    });
+  }
+
+  _login(user) {
+    this.setState({
+      loggedInUser: user 
     });
   }
 }

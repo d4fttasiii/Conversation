@@ -2,6 +2,6 @@
     "git.enabled": false,
     "git.autofetch": false,
 
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
     "editor.tabSize": 3
 }
